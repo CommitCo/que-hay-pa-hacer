@@ -1,4 +1,4 @@
-<div aling="center">
+<div align="center">
 
 ![Logo](public/img/logo-white.png)
 
