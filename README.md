@@ -1,8 +1,8 @@
-<center>
+<div aling="center">
 
 ![Logo](public/img/logo-white.png)
 
-</center>
+</div>
 
 # Descripcion del proyecto
 Para el desarrollo de este proyecto es importante aclarar sobre el tema adoptado:
