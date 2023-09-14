@@ -4,7 +4,7 @@ import { pool } from '../db.js'
 export const getPlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
-        const [rows] = await pool.query("SELECT * FROM employee")
+        const [rows] = await pool.query("SELECT * FROM planes")
         res.json(rows)
     } catch (error) {
         return res.status(500).json({
@@ -15,7 +15,7 @@ export const getPlanes = async(req, res)=> {
 export const getPlan = async(req, res)=> {
     try {
         throw new Error('Mi error')
-        const [rows] = await pool.query("SELECT * FROM employee WHERE id = ?",[req.params.id])
+        const [rows] = await pool.query("SELECT * FROM planes WHERE id = ?",[req.params.id])
         if(rows.length <= 0) return res.status(404).json({
             message: "No existe un registro con ese id"
         })
@@ -30,7 +30,7 @@ export const createPlanes = async(req, res)=>{
     try {
         throw new Error('Mi error')
         const {name,salary} = req.body
-        const [rows] = await pool.query("INSERT INTO employee (name,salary) VALUES (?,?)",[name,salary])
+        const [rows] = await pool.query("INSERT INTO planes (name,salary) VALUES (?,?)",[name,salary])
         res.send({
             id:rows.insertId,
             name, 
@@ -47,11 +47,11 @@ export const updatePlanes = async(req, res)=> {
         throw new Error('Mi error')
         const {id} = req.params
         const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE employee SET name =?, salary=? WHERE id =?",[name,salary,id])
+        const [result] = await pool.query("UPDATE planes SET name =?, salary=? WHERE id =?",[name,salary,id])
         if (result.affectedRows ==0) return res.status(404).json({
             message:'Empleado no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM employee WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM planes WHERE id=?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -64,11 +64,11 @@ export const updatePlan = async(req, res)=> {
         throw new Error('Mi error')
         const {id} = req.params
         const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE employee SET name = IFNULL(?,name), salary=IFNULL(?,salary) WHERE id =?",[name,salary,id])
+        const [result] = await pool.query("UPDATE planes SET name = IFNULL(?,name), salary=IFNULL(?,salary) WHERE id =?",[name,salary,id])
         if (result.affectedRows ==0) return res.status(404).json({
             message:'Empleado no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM employee WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM planes WHERE id=?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -80,7 +80,7 @@ export const updatePlan = async(req, res)=> {
 export const deletePlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
-        const [result] = await pool.query("DELETE FROM employee WHERE id = ?",[req.params.id])
+        const [result] = await pool.query("DELETE FROM planes WHERE id = ?",[req.params.id])
         if (result.affectedRows <=0) return res.status(404).json ({
             message:"Empleado no encontrado"
         })

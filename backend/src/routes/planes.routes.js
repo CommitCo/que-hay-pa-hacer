@@ -4,11 +4,11 @@ import { getPlanes, createPlanes, updatePlanes, deletePlanes, getPlan, updatePla
 
 const router = Router()
 
-router.get('/Planes',getPlanes)
-router.get('/Planes/:id',getPlan)
-router.post('/Planes',createPlanes)
-router.put('/Planes/:id',updatePlanes)
-router.patch('/Planes/:id',updatePlan)
-router.delete('/Planes/:id',deletePlanes)
+router.get('/planes',getPlanes)
+router.get('/planes/:id',getPlan)
+router.post('/planes',createPlanes)
+router.put('/planes/:id',updatePlanes)
+router.patch('/planes/:id',updatePlan)|
+router.delete('/planes/:id',deletePlanes)
 
 export default router
