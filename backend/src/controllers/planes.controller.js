@@ -1,7 +1,7 @@
 import { pool } from '../db.js'
 
 
-export const getEmployees = async(req, res)=> {
+export const getPlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const [rows] = await pool.query("SELECT * FROM employee")
@@ -12,7 +12,7 @@ export const getEmployees = async(req, res)=> {
         })
     }
 }
-export const getEmployee = async(req, res)=> {
+export const getPlan = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const [rows] = await pool.query("SELECT * FROM employee WHERE id = ?",[req.params.id])
@@ -26,7 +26,7 @@ export const getEmployee = async(req, res)=> {
         })
     }
 }
-export const createEmployees = async(req, res)=>{ 
+export const createPlanes = async(req, res)=>{ 
     try {
         throw new Error('Mi error')
         const {name,salary} = req.body
@@ -42,7 +42,7 @@ export const createEmployees = async(req, res)=>{
         })
     }
 }
-export const updateEmployees = async(req, res)=> {
+export const updatePlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const {id} = req.params
@@ -59,7 +59,7 @@ export const updateEmployees = async(req, res)=> {
         })
     }
 }
-export const updateEmployee = async(req, res)=> {
+export const updatePlan = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const {id} = req.params
@@ -77,7 +77,7 @@ export const updateEmployee = async(req, res)=> {
     }
 }
 
-export const deleteEmployees = async(req, res)=> {
+export const deletePlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const [result] = await pool.query("DELETE FROM employee WHERE id = ?",[req.params.id])

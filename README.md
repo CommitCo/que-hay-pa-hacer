@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=100&color=F7F7F7&width=435&lines=Bienvenidos+al+desparche;Donde+encontraremos+distracci%C3%B3n+y;Materemos+el+tiempo+de+la+forma+que;m%C3%A1s+nos+gusta)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=100&color=F7F7F7&width=435&lines=Bienvenidos+al+desparche;Donde+encontraremos+distracci%C3%B3n+y;Mataremos+el+tiempo+de+la+forma+que;m%C3%A1s+nos+gusta)](https://git.io/typing-svg)
 
 ![Logo](public/img/logo-white.png)
 
