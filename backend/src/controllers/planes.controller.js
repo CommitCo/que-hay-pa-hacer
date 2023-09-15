@@ -29,8 +29,8 @@ export const getPlan = async(req, res)=> {
 export const createPlanes = async(req, res)=>{ 
     try {
         throw new Error('Mi error')
-        const {name,salary} = req.body
-        const [rows] = await pool.query("INSERT INTO planes (name,salary) VALUES (?,?)",[name,salary])
+        const {nombre,salary} = req.body
+        const [rows] = await pool.query("INSERT INTO planes (nombre,salary) VALUES (?,?)",[nombre,salary])
         res.send({
             id:rows.insertId,
             name, 
@@ -46,8 +46,8 @@ export const updatePlanes = async(req, res)=> {
     try {
         throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE planes SET name =?, salary=? WHERE id =?",[name,salary,id])
+        const {nombre, descripcion} = req.body
+        const [result] = await pool.query("UPDATE planes SET nombre =?, descripcion=? WHERE id =?",[nombre,descripcion,id])
         if (result.affectedRows ==0) return res.status(404).json({
             message:'Empleado no encontrado'
         })
