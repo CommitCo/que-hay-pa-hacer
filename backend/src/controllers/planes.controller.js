@@ -3,7 +3,6 @@ import { pool } from '../db.js'
 
 export const getPlanes = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const [rows] = await pool.query("SELECT * FROM planes")
         res.json(rows)
     } catch (error) {
@@ -14,27 +13,27 @@ export const getPlanes = async(req, res)=> {
 }
 export const getPlan = async(req, res)=> {
     try {
-        throw new Error('Mi error')
-        const [rows] = await pool.query("SELECT * FROM planes WHERE id = ?",[req.params.id])
+        const [rows] = await pool.query("SELECT * FROM planes WHERE id_plan = ?",[req.params.id])
         if(rows.length <= 0) return res.status(404).json({
             message: "No existe un registro con ese id"
         })
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
-            message:'algo va mal'
+            message:'algo va mal'+error
         })
     }
 }
 export const createPlanes = async(req, res)=>{ 
     try {
-        throw new Error('Mi error')
-        const {nombre,salary} = req.body
-        const [rows] = await pool.query("INSERT INTO planes (nombre,salary) VALUES (?,?)",[nombre,salary])
+        const {nombre,descripcion,fecha,hora} = req.body
+        const [rows] = await pool.query("INSERT INTO planes (nombre,descripcion,fecha,hora) VALUES (?,?,?,?)",[nombre,descripcion,fecha,hora])
         res.send({
             id:rows.insertId,
-            name, 
-            salary
+            nombre, 
+            descripcion,
+            fecha,
+            hora
         })
     } catch (error) {
         return res.status(500).json({
@@ -44,12 +43,11 @@ export const createPlanes = async(req, res)=>{
 }
 export const updatePlanes = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {nombre, descripcion} = req.body
-        const [result] = await pool.query("UPDATE planes SET nombre =?, descripcion=? WHERE id =?",[nombre,descripcion,id])
+        const {nombre,descripcion,fecha,hora} = req.body
+        const [result] = await pool.query("UPDATE planes SET nombre =?, descripcion=?, fecha=?, hora=? WHERE id_plan =?",[nombre,descripcion,fecha,hora,id])
         if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+            message:'plan no encontrado'
         })
         const [rows] = await pool.query('SELECT * FROM planes WHERE id=?',[id])
         res.json(rows[0])
@@ -61,14 +59,13 @@ export const updatePlanes = async(req, res)=> {
 }
 export const updatePlan = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE planes SET name = IFNULL(?,name), salary=IFNULL(?,salary) WHERE id =?",[name,salary,id])
-        if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+        const {nombre,descripcion,fecha,hora} = req.body
+        const [result] = await pool.query("UPDATE planes SET nombre = IFNULL(?,nombre), descripcion=IFNULL(?,descripcion), fecha=IFNULL(?,fecha), hora=IFNULL(?,hora) WHERE id_plan =?",[nombre,descripcion,fecha,hora,id])
+        if (result.affectedRows == 0) return res.status(404).json({
+            message:'plan no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM planes WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM planes WHERE id = ?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -79,12 +76,11 @@ export const updatePlan = async(req, res)=> {
 
 export const deletePlanes = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const [result] = await pool.query("DELETE FROM planes WHERE id = ?",[req.params.id])
         if (result.affectedRows <=0) return res.status(404).json ({
-            message:"Empleado no encontrado"
+            message:"plan no encontrado"
         })
-        res.send("Empleado eliminado")
+        res.send("plan eliminado")
     } catch (error) {
         return res.status(500).json({
             message:'algo va mal'
