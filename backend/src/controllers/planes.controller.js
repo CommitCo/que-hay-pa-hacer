@@ -11,6 +11,7 @@ export const getPlanes = async(req, res)=> {
         })
     }
 }
+
 export const getPlan = async(req, res)=> {
     try {
         const [rows] = await pool.query("SELECT * FROM planes WHERE id_plan = ?",[req.params.id])
