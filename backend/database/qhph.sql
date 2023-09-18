@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS qhph;
 
 USE qhph;
 
-CREATE TABLE usuarios(
+CREATE TABLE IF NOT EXIST usuarios(
     id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre Varchar(45) NOT NULL,
     apellido Varchar(45) DEFAULT NULL,

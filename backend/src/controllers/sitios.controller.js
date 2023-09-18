@@ -1,9 +1,7 @@
 import { pool } from '../db.js'
 
-
 export const getSitios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const [rows] = await pool.query("SELECT * FROM sitios")
         res.json(rows)
     } catch (error) {
@@ -12,10 +10,10 @@ export const getSitios = async(req, res)=> {
         })
     }
 }
+
 export const getSitio = async(req, res)=> {
     try {
-        throw new Error('Mi error')
-        const [rows] = await pool.query("SELECT * FROM sitios WHERE id = ?",[req.params.id])
+        const [rows] = await pool.query("SELECT * FROM sitios WHERE id_sitio = ?",[req.params.id])
         if(rows.length <= 0) return res.status(404).json({
             message: "No existe un registro con ese id"
         })
@@ -26,15 +24,18 @@ export const getSitio = async(req, res)=> {
         })
     }
 }
+
 export const createSitios = async(req, res)=>{ 
     try {
-        throw new Error('Mi error')
-        const {name,salary} = req.body
-        const [rows] = await pool.query("INSERT INTO sitios (name,salary) VALUES (?,?)",[name,salary])
+        const {nombre,ubicacion,telefono,horario,servicios} = req.body
+        const [rows] = await pool.query("INSERT INTO sitios (nombre,ubicacion,telefono,horario,servicios) VALUES (?,?,?,?,?)",[nombre,ubicacion,telefono,horario,servicios])
         res.send({
             id:rows.insertId,
-            name, 
-            salary
+            nombre, 
+            ubicacion,
+            telefono,
+            horario,
+            servicios
         })
     } catch (error) {
         return res.status(500).json({
@@ -42,16 +43,16 @@ export const createSitios = async(req, res)=>{
         })
     }
 }
+
 export const updateSitios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE sitios SET name =?, salary=? WHERE id =?",[name,salary,id])
+        const {nombre,ubicacion,telefono,horario,servicios} = req.body
+        const [result] = await pool.query("UPDATE sitios SET nombre = ?, ubicacion = ?, telefono = ?, horario = ?, servicios = ? WHERE id_sitio = ?",[nombre,ubicacion,telefono,horario,servicios,id])
         if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+            message:'Sitio no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM sitios WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM sitios WHERE id_sitio = ?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -59,16 +60,16 @@ export const updateSitios = async(req, res)=> {
         })
     }
 }
+
 export const updateSitio = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE sitios SET name = IFNULL(?,name), salary=IFNULL(?,salary) WHERE id =?",[name,salary,id])
+        const {nombre,ubicacion,telefono,horario,servicios} = req.body
+        const [result] = await pool.query("UPDATE sitios SET nombre = IFNULL(?,nombre), ubicacion=IFNULL(?,ubicacion), telefono=IFNULL(?,telefono), horario=IFNULL(?,horario), servicios=IFNULL(?,servicios) WHERE id_sitio =?",[nombre,ubicacion,telefono,horario,servicios,id])
         if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+            message:'Sitio no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM sitios WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM sitios WHERE id_sitio = ?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -79,12 +80,11 @@ export const updateSitio = async(req, res)=> {
 
 export const deleteSitios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
-        const [result] = await pool.query("DELETE FROM sitios WHERE id = ?",[req.params.id])
+        const [result] = await pool.query("DELETE FROM sitios WHERE id_sitio = ?",[req.params.id])
         if (result.affectedRows <=0) return res.status(404).json ({
-            message:"Empleado no encontrado"
+            message:"Sitio no encontrado"
         })
-        res.send("Empleado eliminado")
+        res.send("Sitio eliminado")
     } catch (error) {
         return res.status(500).json({
             message:'algo va mal'

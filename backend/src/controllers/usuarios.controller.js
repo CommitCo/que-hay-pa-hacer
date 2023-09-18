@@ -1,9 +1,7 @@
 import { pool } from '../db.js'
 
-
 export const getUsuarios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const [rows] = await pool.query("SELECT * FROM usuarios")
         res.json(rows)
     } catch (error) {
@@ -12,10 +10,10 @@ export const getUsuarios = async(req, res)=> {
         })
     }
 }
+
 export const getUsuario = async(req, res)=> {
     try {
-        throw new Error('Mi error')
-        const [rows] = await pool.query("SELECT * FROM usuarios WHERE id = ?",[req.params.id])
+        const [rows] = await pool.query("SELECT * FROM usuarios WHERE id_usuario = ?",[req.params.id])
         if(rows.length <= 0) return res.status(404).json({
             message: "No existe un registro con ese id"
         })
@@ -26,15 +24,18 @@ export const getUsuario = async(req, res)=> {
         })
     }
 }
+
 export const createUsuarios = async(req, res)=>{ 
     try {
-        throw new Error('Mi error')
-        const {name,salary} = req.body
-        const [rows] = await pool.query("INSERT INTO usuarios (name,salary) VALUES (?,?)",[name,salary])
+        const {nombre,apellido,correo,intereses,contraseña} = req.body
+        const [rows] = await pool.query("INSERT INTO usuarios (nombre,apellido,correo,intereses,contraseña) VALUES (?,?,?,?,?)",[nombre,apellido,correo,intereses,contraseña])
         res.send({
             id:rows.insertId,
-            name, 
-            salary
+            nombre,
+            apellido,
+            correo,
+            intereses,
+            contraseña
         })
     } catch (error) {
         return res.status(500).json({
@@ -42,16 +43,16 @@ export const createUsuarios = async(req, res)=>{
         })
     }
 }
+
 export const updateUsuarios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE usuarios SET name =?, salary=? WHERE id =?",[name,salary,id])
+        const {nombre,apellido,correo,intereses,contraseña} = req.body
+        const [result] = await pool.query("UPDATE usuarios SET nombre = ?, apellido = ?, correo = ?, intereses = ?, contraseña = ? WHERE id_usuario = ?",[nombre,apellido,correo,intereses,contraseña])
         if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+            message:'Usuario no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM usuarios WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE id_usuario=?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -59,16 +60,16 @@ export const updateUsuarios = async(req, res)=> {
         })
     }
 }
+
 export const updateUsuario = async(req, res)=> {
     try {
-        throw new Error('Mi error')
         const {id} = req.params
-        const {name, salary} = req.body
-        const [result] = await pool.query("UPDATE usuarios SET name = IFNULL(?,name), salary=IFNULL(?,salary) WHERE id =?",[name,salary,id])
+        const {nombre,apellido,correo,intereses,contraseña} = req.body
+        const [result] = await pool.query("UPDATE usuarios SET nombre = IFNULL(?,nombre), apellido = IFNULL(?,apellido), correo = IFNULL(?,correo), intereses = IFNULL(?,intereses), contraseña = IFNULL(?,contraseña) WHERE id_usuario =?",[nombre,apellido,correo,intereses,contraseña,id])
         if (result.affectedRows ==0) return res.status(404).json({
-            message:'Empleado no encontrado'
+            message:'Usuario no encontrado'
         })
-        const [rows] = await pool.query('SELECT * FROM usuarios WHERE id=?',[id])
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE id_usuario=?',[id])
         res.json(rows[0])
     } catch (error) {
         return res.status(500).json({
@@ -79,12 +80,11 @@ export const updateUsuario = async(req, res)=> {
 
 export const deleteUsuarios = async(req, res)=> {
     try {
-        throw new Error('Mi error')
-        const [result] = await pool.query("DELETE FROM usuarios WHERE id = ?",[req.params.id])
+        const [result] = await pool.query("DELETE FROM usuarios WHERE id_usuario = ?",[req.params.id])
         if (result.affectedRows <=0) return res.status(404).json ({
-            message:"Empleado no encontrado"
+            message:"Usuario no encontrado"
         })
-        res.send("Empleado eliminado")
+        res.send("Usuario eliminado")
     } catch (error) {
         return res.status(500).json({
             message:'algo va mal'
