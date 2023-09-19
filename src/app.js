@@ -7,6 +7,11 @@ const app = express()
 
 app.use(express.json())
 
+app.use("/",(req, res, next)=>{
+    res.status(202).json({
+        message:"Hola criaturas"
+    })
+})
 app.use("/api",usuariosRoutes)
 app.use("/api",planesRoutes)
 app.use("/api",sitiosRoutes)
