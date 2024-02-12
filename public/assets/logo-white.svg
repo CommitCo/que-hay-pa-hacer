@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214.81 232.22">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 10.64px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-4 {
+        font-size: 22.87px;
+      }
+
+      .cls-4, .cls-5, .cls-6 {
+        fill: #fff;
+        font-family: BowlbyOneSC-Regular, 'Bowlby One SC';
+      }
+
+      .cls-5 {
+        font-size: 25.65px;
+      }
+
+      .cls-2 {
+        stroke-width: 12.16px;
+      }
+
+      .cls-6 {
+        font-size: 47.93px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.07em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <polyline class="cls-1" points="128.53 6.08 107.52 41.65 43.44 150.14 5.32 214.68"/>
+    <polyline class="cls-2" points="85.52 6.08 107.52 43.33 171.33 151.35 208.73 214.68"/>
+    <text class="cls-4" transform="translate(63.18 222.44)"><tspan x="0" y="0">HACER?</tspan></text>
+    <text class="cls-6" transform="translate(70.09 201.97)"><tspan class="cls-7" x="0" y="0">PA</tspan><tspan x="66.94" y="0">’</tspan></text>
+    <text class="cls-5" transform="translate(68.56 138.37)"><tspan x="0" y="0">¿QUÉ</tspan></text>
+    <text class="cls-5" transform="translate(74.5 162.51)"><tspan x="0" y="0">H</tspan><tspan class="cls-3" x="20.72" y="0">A</tspan><tspan x="39.03" y="0">Y </tspan></text>
+  </g>
+</svg>
