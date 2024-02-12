@@ -4,7 +4,7 @@
 
 <div width="1px">
 
-![Logo](/public/img/logo-white.png)
+![Logo](/public/images/logo-white.png)
 
 </div>  
 
@@ -40,5 +40,6 @@ pnpm run dev
 ### Tecnologias utilizaddas
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="70" height="70"/>
 <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="70" height="70"/>
-
-![image](/public/supabase-logo-wordmark--dark.svg){width=70 height=70px}
+<img src="https://miro.medium.com/v2/resize:fit:1358/1*pnSzmFJRCJztS7tkSJXYuQ.jpeg" alt="Supabase" width="140" height="60"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tailwind_CSS_logo.svg/2560px-Tailwind_CSS_logo.svg.png" alt="Tailwind" width="200" height="60"/>
+<img src="https://image.pitchbook.com/Oo6NVAEZwzoeAkQvK3c4AnCBrQ31698062406715_200x200" alt="Tailwind" width="100" height="90"/>
