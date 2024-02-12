@@ -42,4 +42,3 @@ pnpm run dev
 <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="70" height="70"/>
 
 ![image](/public/supabase-logo-wordmark--dark.svg){width=70 height=70px}
-
