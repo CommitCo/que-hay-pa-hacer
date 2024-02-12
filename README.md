@@ -4,7 +4,7 @@
 
 <div width="1px">
 
-![Logo](public/images/logo-white.png)
+![Logo](public/img/logo-white.png)
 
 </div>  
 
@@ -21,21 +21,24 @@ Para el desarrollo de este proyecto es importante aclarar sobre el tema adoptado
 ```
 git clone https://github.com/CommitCo/api-rest-crud-node.git
 ```
-3. Abir la capeta en el visual.
+3. Abir la capeta en el visual studio code.
 ```
 code .
 ```
-4. Inicial el proyecto de nodejs con el comando: 
+4. Desde el directorio del proyecto inicia descargando dependencias con el siguiente comando: 
 ```
-npm init -y
+npm install
 ```
-5. Descargar dependencias necesarias para el desarrollo:
-```
-npm install express
-npm install nodemon -D
-```
+5. Es necesario para el correcto funcionamiento crearse un servicio propio en supabase para que cree las variables de entorno [Supabase](https://supabase.com)
 6. Crear archivos de rutas y desarrollo, como los que ejecutan el servidor escuchando desde el puerto deseado **(3000)**.
-7. Ejecutamos el comando para correr el servidor:
+7. Ejecutamos cualquiera de los dos comandos para correr el servidor:
 ```
 npm run dev
+pnpm run dev
 ```
+
+### Tecnologias utilizaddas
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="70" height="70"/>
+<img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="70" height="70"/>
+
+![image](public/supabase-logo-wordmark--dark.svg){width=70 height=70px}
