@@ -4,7 +4,7 @@
 
 <div width="1px">
 
-![Logo](public/img/logo-white.png)
+![Logo](public/images/logo-white.png)
 
 </div>  
 
