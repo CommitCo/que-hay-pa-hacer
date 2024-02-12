@@ -4,7 +4,7 @@
 
 <div width="1px">
 
-![Logo](public/img/logo-white.png)
+![Logo](/public/img/logo-white.png)
 
 </div>  
 
@@ -41,5 +41,5 @@ pnpm run dev
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="70" height="70"/>
 <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="70" height="70"/>
 
-![image](public/supabase-logo-wordmark--dark.svg){width=70 height=70px}
+![image](/public/supabase-logo-wordmark--dark.svg){width=70 height=70px}
 
