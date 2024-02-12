@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { Radio_Canada } from 'next/font/google'
 import "./globals.css";
 import {Providers} from "./providers";
+
+const font  = Radio_Canada({
+  weight: ['400', '400'],
+  style: ['normal', 'normal'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Que hay pa hacer",
@@ -14,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className='dark'>
-      <body>
+      <body className={font.className}>
         <Providers>
           {children}
         </Providers>

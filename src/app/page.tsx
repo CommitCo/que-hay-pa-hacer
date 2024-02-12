@@ -24,18 +24,11 @@ export default async function Home () {
     <div>
 
     <NavBar/>
-    <main className="flex min-h-screen flex-row items-center justify-between">
-      <section className="max-w-[200] w-full">
-        <Preferencies/>
-      </section>
-      <section className="max-w-[600px] flex-col w-full border-l border-r border-white/20 min-h-screen">
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <section className="max-w-[600px] w-full mx-auto border-l border-r border-white/20 min-h-screen">
         <ComposePost userAvatarUrl ={session.user?.user_metadata?.avatar_url}/>
         <PostLists posts = {posts} />
       </section>
-      <section className="max-w-[200] w-full">
-        <Preferencies/>
-      </section>
-      
     </main>
     </div>
   )

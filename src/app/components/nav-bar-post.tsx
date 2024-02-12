@@ -7,9 +7,9 @@ import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <Navbar className="border-b border-y-violet-400">
+    <Navbar className="border-b border-y-violet-400 p-2">
       <NavbarBrand>
-        <Image src="/assets/logo-white.svg" alt="holaaaa" width={50} height={50}/>
+        <Image src="/assets/logo-white.svg" alt="Logo" width={50} height={50}/>
       </NavbarBrand>
       <NavbarContent justify="end">
         <NavbarItem>
